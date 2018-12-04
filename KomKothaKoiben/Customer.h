@@ -1,5 +1,6 @@
 #pragma once
 #include "Person.h"
+#include"Call.h"
 #include"PhoneNumber.h"
 #include<iostream>
 #include <list> 
@@ -42,6 +43,10 @@ public:
 	void set_customer_index(int);//modifier of customer index
 	int get_customer_index();//accessor of customer index
 	int phone_number_get_length();//accessor for phone number list length
+
+	bool insert_phone_call(Call call, PhoneNumber calledIn);//inserting call in a customer's saved phone numbers
+	void get_call_list();//retriving all calls of a customer
+
 
 	bool operator==(const Customer & rhs);//overloading operator == to compare Customer Type object
 	bool operator<(const Customer & rhs);//overloading operator < to compare Customer Type object

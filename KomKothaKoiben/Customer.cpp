@@ -142,6 +142,27 @@ int Customer::phone_number_get_length()
 	return phoneNumberList.size();
 }
 
+bool Customer::insert_phone_call(Call call, PhoneNumber calledIn)
+{
+	PhoneNumber phoneNumber;
+	for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
+	{
+		phoneNumber = *it;
+		if (phoneNumber == calledIn)
+			break;
+		else
+		{
+			cout << "Phone Number is not currect" << endl;
+			return false;
+		}
+	}
+	phoneNumber.insert_call(call);
+	*it = phoneNumber;
+	return true;
+}
+
+
+
 
 bool Customer::operator==(const Customer& rhs)
 {
