@@ -170,6 +170,8 @@ void Customer::get_call_list()
 		number = *it;
 		if (!number.call_list_is_empty())
 		{
+			cout << number;
+			cout << "Call list of " << number.get_phone_number() << " is listed below" << endl;
 			number.get_calls();
 		}
 		
