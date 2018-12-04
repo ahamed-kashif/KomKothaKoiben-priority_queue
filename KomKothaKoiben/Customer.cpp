@@ -161,6 +161,21 @@ bool Customer::insert_phone_call(Call call, PhoneNumber calledIn)
 	return true;
 }
 
+void Customer::get_call_list()
+{
+	PhoneNumber number;
+	
+	for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
+	{
+		number = *it;
+		if (!number.call_list_is_empty())
+		{
+			number.get_calls();
+		}
+		
+	}
+}
+
 
 
 

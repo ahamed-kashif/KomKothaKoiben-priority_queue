@@ -101,6 +101,11 @@ void PhoneNumber::insert_call(Call newCall)
 	callList.push(newCall);
 }
 
+bool PhoneNumber::call_list_is_empty()
+{
+	return callList.empty();
+}
+
 void PhoneNumber::get_calls()
 {
 	if (callList.empty())

@@ -59,6 +59,7 @@ public:
 	friend ostream& operator<<(ostream& os, const PhoneNumber& phoneNumber);//overloading operator << to print PhoneNumber Type object
 
 	void insert_call(Call newCall);//inserting Phone Calls
+	bool call_list_is_empty();//returns if a number has phone calls or not
 	void get_calls();//getting all phone calls from priority_queue
 
 };
