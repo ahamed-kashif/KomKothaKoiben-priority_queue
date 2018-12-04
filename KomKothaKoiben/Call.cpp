@@ -71,4 +71,12 @@ double Call::get_call_duration()
 	return time;
 }
 
+void Call::print_call()
+{
+	cout << "Caller Name:\t" << name << endl;
+	cout << "Caller Number:\t" << phoneNumber << endl;
+	cout << "Call Duration:\t" << time << endl;
+	cout << "Relationship:\t" << relation << endl;
+}
+
 

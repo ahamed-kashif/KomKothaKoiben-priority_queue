@@ -24,6 +24,8 @@ public:
 	relationship get_relation_type();
 	double get_call_duration();
 
+	void print_call();
+
 
 private:
 	string phoneNumber;

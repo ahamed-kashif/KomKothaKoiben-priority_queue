@@ -34,7 +34,7 @@ private:
 	
 	typedef priority_queue<Call, std::vector<Call>, comparision> Calling;
 
-	Calling calList;
+	Calling callList;
 
 
 public:
@@ -58,7 +58,8 @@ public:
 	bool operator>(const PhoneNumber & rhs);//overloading operator > to compare PhoneNumber Type object
 	friend ostream& operator<<(ostream& os, const PhoneNumber& phoneNumber);//overloading operator << to print PhoneNumber Type object
 
-	
+	void insert_call(Call newCall);//inserting Phone Calls
+	void get_calls();//getting all phone calls from priority_queue
 
 };
 

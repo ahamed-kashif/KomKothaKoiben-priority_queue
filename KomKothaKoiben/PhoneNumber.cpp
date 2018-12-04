@@ -96,6 +96,30 @@ bool PhoneNumber::operator>(const PhoneNumber & rhs)
 		return false;
 }
 
+void PhoneNumber::insert_call(Call newCall)
+{
+	callList.push(newCall);
+}
+
+void PhoneNumber::get_calls()
+{
+	if (callList.empty())
+	{
+		cout << "No calls have been made yet!!";
+	}
+	else
+	{
+		Calling dummy;
+		dummy = callList;
+		while (!dummy.empty())
+		{
+			Call dummyCall=dummy.top();
+			dummyCall.print_call();
+			dummy.pop();
+		}
+	}
+}
+
 
 
 
