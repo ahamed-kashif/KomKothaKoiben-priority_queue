@@ -33,9 +33,7 @@ void PhoneNumber::set_phone_number(string phoneNum)
 		phoneNumber = phoneNum;
 	}
 	else
-	{
-		cout << "Phone Number is not Correct!!";
-	}
+		throw WrongNumber();
 
 
 }

@@ -1,8 +1,15 @@
 #pragma once
 #include<string>
 #include<iostream>
+#include<exception>
 
 using namespace std;
+
+
+class WrongNumber {
+public:
+	std::string Error() { return "Entered Phone Number is not correct!"; }
+};
 
 enum relationship { spouse = 1, Child = 2, Parent = 3, Sibling = 4, Aunt = 5, Uncle = 5, Cousins = 6, Significant = 7, Friend = 8, Boss = 9, Subordinate = 10, Acquaintance = 11, Blocked = 12 };
 class Call
