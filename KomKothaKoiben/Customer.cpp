@@ -170,8 +170,10 @@ void Customer::get_call_list()
 		number = *it;
 		if (!number.call_list_is_empty())
 		{
-			cout << number;
-			cout << "Call list of " << number.get_phone_number() << " is listed below" << endl;
+			cout << "Customer ID: #" << customerIndex << endl;
+			cout << "\t" << name << endl;
+			cout << "\t" << number.get_operator_name() << "  " << number.get_phone_number() << endl;
+			cout << "\tCalls: " << endl;
 			number.get_calls();
 		}
 		

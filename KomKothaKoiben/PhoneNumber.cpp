@@ -11,14 +11,14 @@ PhoneNumber::PhoneNumber()
 
 PhoneNumber::PhoneNumber(string phNumber, string opName)
 {
-	if (phNumber.size() == 15 && opName == "KomKothaKoiben" || opName == "GrameenPhone" || opName == "Robi" || opName == "Teletalk" || opName == "BanglaLink")
+	if (phNumber.size() == 11 && opName == "KomKothaKoiben" || opName == "GrameenPhone" || opName == "Robi" || opName == "Teletalk" || opName == "BanglaLink")
 	{
 		phoneNumber = phNumber;
 		operatorName = opName;
 	}
 	else
 	{
-		cout << "Number or Operator name is not correct!!" << endl;
+		throw WrongNumber();
 	}
 }
 

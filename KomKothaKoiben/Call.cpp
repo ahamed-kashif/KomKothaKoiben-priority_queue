@@ -79,10 +79,46 @@ double Call::get_call_duration()
 
 void Call::print_call()
 {
-	cout << "Caller Name:\t" << name << endl;
-	cout << "Caller Number:\t" << phoneNumber << endl;
-	cout << "Call Duration:\t" << time << endl;
-	cout << "Relationship:\t" << relation << endl;
+	switch (relation)
+	{
+	case spouse:
+		cout << "\t\t" << "Spouse " << relation << " " << time << " sec" << endl;
+		break;
+	case Child:
+		cout << "\t\t" << "Child " << relation << " " << time << " sec" << endl;
+		break;
+	case Parent:
+		cout << "\t\t" << "Parents " << relation << " " << time << " sec" << endl;
+		break;
+	case Sibling:
+		cout << "\t\t" << "Sibling " << relation << " " << time << " sec" << endl;
+		break;
+	case Aunt:
+		cout << "\t\t" << "Aunt " << relation << " " << time << " sec" << endl;
+		break;
+	/*case Uncle:
+		cout << "\t\t" << "Uncle" << relation << " " << time << endl;
+		break;*/
+	case Cousins:
+		cout << "\t\t" << "Cousins " << relation << " " << time << " sec" << endl;
+		break;
+	case Significant:
+		cout << "\t\t" << "Significant " << relation << " " << time << " sec" << endl;
+		break;
+	case Friend:
+		cout << "\t\t" << "Friend " << relation << " " << time << " sec" << endl;
+		break;
+	case Subordinate:
+		cout << "\t\t" << "Subordinate " << relation << " " << time << " sec" << endl;
+		break;
+	case Acquaintance:
+		cout << "\t\t" << "Acquaintance " << relation << " " << time << " sec" << endl;
+		break;
+	case Blocked:
+		cout << "\t\t" << "Blocked " << relation << " " << time << " sec" << endl;
+		break;
+	}
+	
 }
 
 
