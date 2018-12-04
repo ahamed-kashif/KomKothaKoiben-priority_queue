@@ -133,7 +133,7 @@ bool KomKothaKoibenSTLPriorityQueue::insert_new_number(Customer customer, PhoneN
 			return true;
 		}
 	}
-	cout << endl << "Customer Index or is not CORRECT!!" << endl << endl;
+	cout << endl << "Customer is not CORRECT!!" << endl << endl;
 	return false;
 }
 
@@ -168,9 +168,9 @@ bool KomKothaKoibenSTLPriorityQueue::insert_call_in_database(Customer customer, 
 	for (it = customerList.begin(); it != customerList.end(); it++)
 	{
 		customerFromList = *it;
-		if (customerFromList == customer)
+		if (customerFromList == customer && customerFromList.get_phone_number(phoneNumber)==phoneNumber)
 		{
-			customerFromList.insert_phone_call(inComingCall, phoneNumber);
+			customerFromList.insert_phone_call(phoneNumber, inComingCall);
 			*it = customerFromList;
 			return true;
 		}
@@ -188,7 +188,7 @@ void KomKothaKoibenSTLPriorityQueue::get_phone_call_list(Customer customer)
 		if (customerFromList == customer)
 		{
 			customerFromList.get_call_list();
-			break;
+			return;
 		}
 			
 	}
