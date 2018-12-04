@@ -168,6 +168,7 @@ bool KomKothaKoibenSTLPriorityQueue::insert_call_in_database(Customer customer, 
 	for (it = customerList.begin(); it != customerList.end(); it++)
 	{
 		customerFromList = *it;
+		
 		if (customerFromList == customer && customerFromList.get_phone_number(phoneNumber)==phoneNumber)
 		{
 			customerFromList.insert_phone_call(phoneNumber, inComingCall);

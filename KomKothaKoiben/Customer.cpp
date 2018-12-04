@@ -148,20 +148,21 @@ bool Customer::insert_phone_call(PhoneNumber calledIn, Call call)
 	for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
 	{
 		phoneNumber = *it;
+		
 		if (phoneNumber == calledIn)
 		{
 			phoneNumber.insert_call(call);
 			*it = phoneNumber;
-			
+			return true;
 		}
 		else
 		{
-			cout << "Phone Number is not currect" << endl;
-			return false;
+			continue;
 		}
 	}
-	return true;
 	
+	cout << "Phone Number is not currect" << endl;
+	return false;
 }
 
 void Customer::get_call_list()
