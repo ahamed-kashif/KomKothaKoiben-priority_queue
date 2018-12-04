@@ -1,17 +1,40 @@
 #pragma once
 #include<iostream>
 #include<string>
+#include <queue>
+#include"Call.h"
 
 using namespace std;
 
+struct comparision
+{
+	bool operator()(Call called, Call calling)
+	{
+		if (called.get_relation_type() > calling.get_relation_type())
+			return true;
+		else if (called.get_relation_type() == calling.get_relation_type())
+		{
+			if (called.get_call_duration() < calling.get_call_duration())
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+};
+
 class PhoneNumber
 {
-public:
+
 private:
+
 	string phoneNumber;
 	string operatorName;
 	
+	typedef priority_queue<Call, std::vector<Call>, comparision> Calling;
 
+	Calling calList;
 
 
 public:

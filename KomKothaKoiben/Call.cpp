@@ -8,9 +8,18 @@ Call::Call()
 
 Call::Call(string phone, string caller, relationship relationType)
 {
-	phoneNumber = phone;
-	name = caller;
-	relation = relationType;
+	if (phone.size() == 11)
+	{
+		phoneNumber = phone;
+		name = caller;
+		relation = relationType;
+	}
+	else
+	{
+		cout << "Phone Number is not correct"<< endl ;
+	}
+
+	
 }
 
 
@@ -20,7 +29,11 @@ Call::~Call()
 
 void Call::set_phone_number(string phone)
 {
-	phoneNumber = phone;
+	if (phone.size() == 11)
+	{
+		phoneNumber = phone;
+	}
+	
 }
 
 void Call::set_caller_name(string caller)
