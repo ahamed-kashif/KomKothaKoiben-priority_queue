@@ -188,6 +188,11 @@ void KomKothaKoibenSTLPriorityQueue::get_phone_call_list(Customer customer)
 		customerFromList = *it;
 		if (customerFromList == customer)
 		{
+			cout << endl;
+			cout << endl;
+			cout << "Customer ID: #" << customerFromList.get_customer_index() << endl;
+			cout << "\t" << customerFromList.get_name() << endl;
+			cout << endl;
 			customerFromList.get_call_list();
 			return;
 		}
