@@ -162,3 +162,20 @@ bool KomKothaKoibenSTLPriorityQueue::delete_phone_number(Customer customer, Phon
 	return false;
 }
 
+bool KomKothaKoibenSTLPriorityQueue::insert_call_in_database(Customer customer, PhoneNumber phoneNumber, Call inComingCall)
+{
+	Customer customerFromList;
+	for (it = customerList.begin(); it != customerList.end(); it++)
+	{
+		customerFromList = *it;
+		if (customerFromList == customer)
+		{
+			customerFromList.insert_phone_call(inComingCall, phoneNumber);
+			*it = customerFromList;
+			return true;
+		}
+	}
+	cout << "This Customer is not in Database!!" << endl;
+	return false;
+}
+

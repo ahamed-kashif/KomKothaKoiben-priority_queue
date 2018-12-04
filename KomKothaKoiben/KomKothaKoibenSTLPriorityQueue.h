@@ -40,6 +40,8 @@ public:
 	bool insert_new_number(Customer, PhoneNumber);
 	bool delete_phone_number(Customer, PhoneNumber);
 
+
+	bool insert_call_in_database(Customer, PhoneNumber, Call);//inserting calls in company's database
 	//bool change_operator_name(Customer, PhoneNumber, string);
 };
 
