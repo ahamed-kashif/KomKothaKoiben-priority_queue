@@ -179,3 +179,19 @@ bool KomKothaKoibenSTLPriorityQueue::insert_call_in_database(Customer customer, 
 	return false;
 }
 
+void KomKothaKoibenSTLPriorityQueue::get_phone_call_list(Customer customer)
+{
+	Customer customerFromList;
+	for (it = customerList.begin(); it != customerList.end(); it++)
+	{
+		customerFromList = *it;
+		if (customerFromList == customer)
+		{
+			customerFromList.get_call_list();
+			break;
+		}
+			
+	}
+	
+}
+

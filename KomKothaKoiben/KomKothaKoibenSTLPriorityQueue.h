@@ -42,6 +42,7 @@ public:
 
 
 	bool insert_call_in_database(Customer, PhoneNumber, Call);//inserting calls in company's database
+	void get_phone_call_list(Customer);//printing a specific customer's (stored in database) call list
 	//bool change_operator_name(Customer, PhoneNumber, string);
 };
 
