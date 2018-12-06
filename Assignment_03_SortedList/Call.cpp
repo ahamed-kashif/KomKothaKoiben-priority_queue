@@ -17,13 +17,13 @@ Call::Call(string phone, string caller, relationship relationType)
 			relation = relationType;
 		}
 	}
-	
-	catch(WrongNumber)
+
+	catch (WrongNumber)
 	{
 		throw WrongNumber();
 	}
 
-	
+
 }
 
 
@@ -39,7 +39,7 @@ void Call::set_phone_number(string phone)
 	}
 	else
 		throw WrongNumber();
-	
+
 }
 
 void Call::set_caller_name(string caller)
@@ -96,9 +96,9 @@ void Call::print_call()
 	case Aunt:
 		cout << "\t\t" << "Aunt " << relation << " " << time << " sec" << endl;
 		break;
-	/*case Uncle:
-		cout << "\t\t" << "Uncle" << relation << " " << time << endl;
-		break;*/
+		/*case Uncle:
+			cout << "\t\t" << "Uncle" << relation << " " << time << endl;
+			break;*/
 	case Cousins:
 		cout << "\t\t" << "Cousins " << relation << " " << time << " sec" << endl;
 		break;
@@ -121,7 +121,7 @@ void Call::print_call()
 		cout << "\t\t" << "Blocked " << relation << " " << time << " sec" << endl;
 		break;
 	}
-	
+
 }
 
 

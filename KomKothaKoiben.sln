@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KomKothaKoiben", "KomKothaKoiben\KomKothaKoiben.vcxproj", "{920596D3-9346-4DFF-8473-C5B8A799271E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assignment_03_SortedList", "Assignment_03_SortedList\Assignment_03_SortedList.vcxproj", "{4B7C2DE7-B1C5-435D-91F2-FF09854CEADB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{920596D3-9346-4DFF-8473-C5B8A799271E}.Release|x64.Build.0 = Release|x64
 		{920596D3-9346-4DFF-8473-C5B8A799271E}.Release|x86.ActiveCfg = Release|Win32
 		{920596D3-9346-4DFF-8473-C5B8A799271E}.Release|x86.Build.0 = Release|Win32
+		{4B7C2DE7-B1C5-435D-91F2-FF09854CEADB}.Debug|x64.ActiveCfg = Debug|x64
+		{4B7C2DE7-B1C5-435D-91F2-FF09854CEADB}.Debug|x64.Build.0 = Debug|x64
+		{4B7C2DE7-B1C5-435D-91F2-FF09854CEADB}.Debug|x86.ActiveCfg = Debug|Win32
+		{4B7C2DE7-B1C5-435D-91F2-FF09854CEADB}.Debug|x86.Build.0 = Debug|Win32
+		{4B7C2DE7-B1C5-435D-91F2-FF09854CEADB}.Release|x64.ActiveCfg = Release|x64
+		{4B7C2DE7-B1C5-435D-91F2-FF09854CEADB}.Release|x64.Build.0 = Release|x64
+		{4B7C2DE7-B1C5-435D-91F2-FF09854CEADB}.Release|x86.ActiveCfg = Release|Win32
+		{4B7C2DE7-B1C5-435D-91F2-FF09854CEADB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
