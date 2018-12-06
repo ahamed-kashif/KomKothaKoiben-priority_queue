@@ -17,7 +17,7 @@ private:
 
 	string phoneNumber;
 	string operatorName;
-	vector<Call> item;
+	Call* item;
 	int length = 0;
 	
 

@@ -6,6 +6,7 @@ PhoneNumber::PhoneNumber()
 {
 	phoneNumber = "";
 	operatorName = "";
+	item = new Call[100];
 	length = 0;
 }
 
@@ -110,7 +111,7 @@ void PhoneNumber::reheap_up(int root, int bottom)
 		}
 		else if (item[parent].get_relation_type() == item[bottom].get_relation_type())
 		{
-			if (item[parent].get_call_duration() > item[bottom].get_call_duration())
+			if (item[parent].get_call_duration() < item[bottom].get_call_duration())
 			{
 				swap(item[parent], item[bottom]);
 				reheap_up(root, parent);
@@ -135,7 +136,7 @@ void PhoneNumber::reheap_down(int root, int bottom)
 			}
 			else if (item[rightChild].get_relation_type() == item[leftChild].get_relation_type())
 			{
-				if (item[rightChild].get_call_duration() >= item[leftChild].get_call_duration())
+				if (item[rightChild].get_call_duration() <= item[leftChild].get_call_duration())
 				{
 					minChild = rightChild;
 				}
@@ -152,7 +153,7 @@ void PhoneNumber::reheap_down(int root, int bottom)
 		}
 		else if (item[minChild].get_relation_type() == item[root].get_relation_type())
 		{
-			if (item[minChild].get_call_duration() >= item[root].get_call_duration())
+			if (item[minChild].get_call_duration() <= item[root].get_call_duration())
 			{
 				swap(item[minChild], item[root]);
 				reheap_down(minChild, bottom);
@@ -180,7 +181,7 @@ void PhoneNumber::insert_call(Call newCall)
 
 bool PhoneNumber::call_list_is_empty()
 {
-	return item.size()==0;
+	return length==0;
 }
 
 Call PhoneNumber::get_call()
@@ -197,7 +198,12 @@ void PhoneNumber::dequeue_call()
 
 void PhoneNumber::print_call_list()
 {
-	vector<Call> tempCallList=item;
+	Call tempCallList[100];
+	for (int index = 0; index < length; index++)
+	{
+		tempCallList[index] = item[index];
+	}
+	
 	int tempLength = length;
 	while (tempLength != 0)
 	{
