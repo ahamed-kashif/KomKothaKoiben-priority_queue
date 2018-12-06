@@ -161,6 +161,14 @@ void PhoneNumber::reheap_down(int root, int bottom)
 
 }
 
+void PhoneNumber::swap(Call first, Call second)
+{
+	Call temp;
+	temp = first;
+	first = second;
+	second = temp;
+}
+
 void PhoneNumber::insert_call(Call newCall)
 {
 	length++;

@@ -2,21 +2,23 @@
 #include<iostream>
 #include<string>
 #include"Call.h"
-#include "HeapType.h"
+#include<vector>
 
 
 using namespace std;
 
 
 
-class PhoneNumber : public HeapType
+class PhoneNumber 
 {
+
 
 private:
 
 	string phoneNumber;
 	string operatorName;
-
+	vector<Call> item;
+	int length = 0;
 	
 
 
@@ -42,8 +44,9 @@ public:
 	friend ostream& operator<<(ostream& os, const PhoneNumber& phoneNumber);//overloading operator << to print PhoneNumber Type object
 
 	
-	void reheap_up(int root, int bottom) override;
-	void reheap_down(int root, int bottom) override;
+	void reheap_up(int root, int bottom);
+	void reheap_down(int root, int bottom);
+	void swap(Call first, Call second);
 	
 	void insert_call(Call newCall);//inserting Phone Calls
 	bool call_list_is_empty();//returns if a number has phone calls or not
