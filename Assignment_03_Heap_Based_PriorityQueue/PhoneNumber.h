@@ -17,7 +17,7 @@ private:
 
 	string phoneNumber;
 	string operatorName;
-	Call* item;
+	Call* item=nullptr;
 	int length = 0;
 	
 

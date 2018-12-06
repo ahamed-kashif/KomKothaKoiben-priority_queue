@@ -111,9 +111,12 @@ void PhoneNumber::reheap_up(int root, int bottom)
 		}
 		else if (item[parent].get_relation_type() == item[bottom].get_relation_type())
 		{
+			cout << "gotcha!!\n";
 			if (item[parent].get_call_duration() < item[bottom].get_call_duration())
 			{
+
 				swap(item[parent], item[bottom]);
+				cout << "after gotcha!!\n";
 				reheap_up(root, parent);
 			}
 		}
@@ -153,7 +156,7 @@ void PhoneNumber::reheap_down(int root, int bottom)
 		}
 		else if (item[minChild].get_relation_type() == item[root].get_relation_type())
 		{
-			if (item[minChild].get_call_duration() <= item[root].get_call_duration())
+			if (item[minChild].get_call_duration() >= item[root].get_call_duration())
 			{
 				swap(item[minChild], item[root]);
 				reheap_down(minChild, bottom);
