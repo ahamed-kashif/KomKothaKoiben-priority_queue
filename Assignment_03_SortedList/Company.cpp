@@ -62,7 +62,7 @@ bool Company::put_customer_details(Customer item)
 		{
 			Customer tempItem;
 
-			for (auto it = customerList.begin(); it != customerList.end(); it++)
+			for (it = customerList.begin(); it != customerList.end(); it++)
 			{
 				tempItem = *it;
 				if (tempItem > item)

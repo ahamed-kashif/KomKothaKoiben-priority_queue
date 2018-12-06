@@ -31,9 +31,7 @@ public:
 	relationship get_relation_type();
 	double get_call_duration();
 
-	bool operator==(const Call & rhs);//overloading operator == to compare PhoneNumber Type object
-	bool operator<(const Call & rhs);//overloading operator < to compare PhoneNumber Type object
-	bool operator>(const Call & rhs);//overloading operator > to compare PhoneNumber Type object
+	
 
 	void print_call();
 

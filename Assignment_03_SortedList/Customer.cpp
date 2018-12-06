@@ -120,7 +120,7 @@ void Customer::print_customer_details()
 	for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
 	{
 		temp = *it;
-		cout << temp;
+		temp.print_phone_number();
 	}
 }
 
@@ -142,7 +142,7 @@ int Customer::phone_number_get_length()
 	return phoneNumberList.size();
 }
 
-/*bool Customer::insert_phone_call(PhoneNumber calledIn, Call call)
+bool Customer::insert_phone_call(PhoneNumber calledIn, Call call)
 {
 	PhoneNumber phoneNumber;
 	for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
@@ -183,7 +183,7 @@ void Customer::print_call_list()
 
 	}
 }
-*/
+
 
 
 
