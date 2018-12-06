@@ -15,6 +15,7 @@ public:
 	void swap(Call first, Call second);
 
 	vector<Call> item;
+	int length=0;
 
 };
 

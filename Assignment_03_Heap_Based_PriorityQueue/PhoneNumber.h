@@ -47,8 +47,8 @@ public:
 	
 	void insert_call(Call newCall);//inserting Phone Calls
 	bool call_list_is_empty();//returns if a number has phone calls or not
-	Call get_calls();//this function will return top most call
-	bool dequeue_call();//this will dequeue top most Call
+	Call get_call();//this function will return top most call
+	void dequeue_call();//this will dequeue top most Call
 	void print_call_list();//prints call list
 
 };

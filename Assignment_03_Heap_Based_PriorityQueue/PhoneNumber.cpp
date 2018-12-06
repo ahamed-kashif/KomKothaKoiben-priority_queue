@@ -161,6 +161,43 @@ void PhoneNumber::reheap_down(int root, int bottom)
 
 }
 
+void PhoneNumber::insert_call(Call newCall)
+{
+	length++;
+	item[length - 1] = newCall;
+	reheap_up(0, length - 1);
+}
+
+bool PhoneNumber::call_list_is_empty()
+{
+	return item.size()==0;
+}
+
+Call PhoneNumber::get_call()
+{
+	return item[0];
+}
+
+void PhoneNumber::dequeue_call()
+{
+	item[0] = item[length - 1];
+	length--;
+	reheap_up(0, length - 1);
+}
+
+void PhoneNumber::print_call_list()
+{
+	vector<Call> tempCallList=item;
+	int tempLength = length;
+	while (tempLength != 0)
+	{
+		tempCallList[0].print_call();
+		tempCallList[0] = tempCallList[tempLength - 1];
+		tempLength--;
+		reheap_up(0, tempLength - 1);
+	}
+}
+
 
 
 ostream & operator<<(ostream & os, const PhoneNumber & phoneNumber)
