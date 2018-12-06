@@ -6,6 +6,7 @@ PhoneNumber::PhoneNumber()
 {
 	phoneNumber = "";
 	operatorName = "";
+	length = 0;
 }
 
 
@@ -15,6 +16,7 @@ PhoneNumber::PhoneNumber(string phNumber, string opName)
 	{
 		phoneNumber = phNumber;
 		operatorName = opName;
+		length = 0;
 	}
 	else
 	{
