@@ -120,7 +120,7 @@ void Customer::print_customer_details()
 	for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
 	{
 		temp = *it;
-		temp.print_phone_number();
+		cout << temp;
 	}
 }
 
@@ -177,7 +177,7 @@ void Customer::print_call_list()
 
 			cout << "\t" << number.get_operator_name() << "  " << number.get_phone_number() << endl;
 			cout << "\tCalls: " << endl;
-			number.print_call_list();
+			number.get_calls();
 			cout << endl;
 		}
 
