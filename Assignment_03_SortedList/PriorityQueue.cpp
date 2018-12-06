@@ -2,22 +2,22 @@
 
 
 
-template<class ItemType>
-PriorityQueue<ItemType>::PriorityQueue()
+
+PriorityQueue::PriorityQueue()
 {
 	front = nullptr;
 	rear = nullptr;
 	length = 0;
 }
 
-template<class ItemType>
-PriorityQueue<ItemType>::~PriorityQueue()
+
+PriorityQueue::~PriorityQueue()
 {
 	make_empty();
 }
 
-template<class ItemType>
-bool PriorityQueue<ItemType>::Enqueue(ItemType newItem)
+
+bool PriorityQueue::Enqueue(Call newItem)
 {
 	if (is_full())
 		return false;
@@ -27,10 +27,41 @@ bool PriorityQueue<ItemType>::Enqueue(ItemType newItem)
 	NodeType* curr = front;
 	NodeType* prev = nullptr;
 	bool posFound = false;
+
 	while (curr != nullptr && !posFound) {
-		if (curr->info < newItem) {
+		if (curr->info.get_relation_type() < newItem.get_relation_type()) {
 			prev = curr;
 			curr = curr->next;
+		}
+		else if (curr->info.get_relation_type() == newItem.get_relation_type())
+		{
+			if (curr->info.get_call_duration() >= curr->info.get_call_duration())
+			{
+				posFound = true;
+				newNode->next = curr;
+				if (prev == nullptr) {
+					front = newNode;
+				}
+				else {
+					prev->next = newNode;
+				}
+			}
+			else
+			{
+				posFound = true;
+				prev = curr;
+				curr = curr->next;
+				newNode->next = curr;
+				if (prev == nullptr) {
+					front = newNode;
+				}
+				else {
+					prev->next = newNode;
+				}
+
+			}
+			
+			
 		}
 		else {
 			posFound = true;
@@ -59,8 +90,8 @@ bool PriorityQueue<ItemType>::Enqueue(ItemType newItem)
 	length++;
 }
 
-template<class ItemType>
-void PriorityQueue<ItemType>::Dequeue()
+
+void PriorityQueue::Dequeue()
 {
 	if (is_empty()) {
 		throw EmptyQueue();
@@ -79,8 +110,8 @@ void PriorityQueue<ItemType>::Dequeue()
 	}
 }
 
-template<class ItemType>
-bool PriorityQueue<ItemType>::is_full()
+
+bool PriorityQueue::is_full()
 {
 	try {
 		NodeType* newNode = new NodeType();
@@ -92,28 +123,28 @@ bool PriorityQueue<ItemType>::is_full()
 	return false;
 }
 
-template<class ItemType>
-void PriorityQueue<ItemType>::make_empty()
+
+void PriorityQueue::make_empty()
 {
 	
 	while (!is_empty())
 		Dequeue();
 }
 
-template<class ItemType>
-bool PriorityQueue<ItemType>::is_empty()
+
+bool PriorityQueue::is_empty()
 {
 	return ((length == 0) && (front == nullptr) && (rear == nullptr));
 }
 
-template<class ItemType>
-int PriorityQueue<ItemType>::get_length()
+
+int PriorityQueue::get_length()
 {
 	return length;
 }
 
-template<class ItemType>
-ItemType PriorityQueue<ItemType>::Top()
+
+Call PriorityQueue::Top()
 {
 	return front->info;
 }

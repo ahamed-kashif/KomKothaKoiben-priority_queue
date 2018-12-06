@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 #include<exception>
+#include"Call.h"
 
 class FullQueue {
 public:
@@ -13,24 +14,23 @@ public:
 };
 
 
-template<class ItemType>
 class PriorityQueue
 {
 	struct NodeType {
-		ItemType info = ItemType();
+		Call info;
 		NodeType* next = nullptr;
 	};
 
 public:
 	PriorityQueue();
 	~PriorityQueue();
-	bool Enqueue(ItemType);
+	bool Enqueue(Call);
 	void Dequeue();
 	bool is_full();
 	void make_empty();
 	bool is_empty();
 	int get_length();
-	ItemType Top();
+	Call Top();
 	
 
 
