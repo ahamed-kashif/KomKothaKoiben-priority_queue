@@ -3,7 +3,7 @@
 #include<string>
 #include <queue>
 #include"Call.h"
-#include "PriorityQueue.h"
+#include "PriorityQueue.cpp"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ private:
 	string phoneNumber;
 	string operatorName;
 	
-	PriorityQueue<Call> calling;
+	PriorityQueue<Call> callList;
 
 
 public:

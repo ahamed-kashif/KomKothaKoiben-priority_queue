@@ -81,6 +81,8 @@ bool Call::operator==(const Call& rhs)
 {
 	if (this->relation == rhs.relation && this->time == rhs.time)
 		return true;
+	else
+		return false;
 }
 
 bool Call::operator<(const Call & rhs)
@@ -90,8 +92,10 @@ bool Call::operator<(const Call & rhs)
 		if (this->time < rhs.time)
 			return true;
 	}
-	else if (this->relation < rhs.relation)
+	if (this->relation < rhs.relation)
 		return true;
+	else
+		return false;
 }
 
 bool Call::operator>(const Call & rhs)
@@ -101,8 +105,10 @@ bool Call::operator>(const Call & rhs)
 		if (this->time > rhs.time)
 			return true;
 	}
-	else if (this->relation > rhs.relation)
+	if (this->relation > rhs.relation)
 		return true;
+	else
+		return false;
 }
 
 

@@ -109,3 +109,43 @@ ostream & operator<<(ostream & os, const PhoneNumber & phoneNumber)
 	return os;
 }
 
+
+void PhoneNumber::insert_call(Call newCall)
+{
+	callList.Enqueue(newCall);
+}
+
+bool PhoneNumber::call_list_is_empty()
+{
+	return callList.is_empty();
+}
+
+Call PhoneNumber::get_calls()
+{
+	return callList.Top();
+}
+
+bool PhoneNumber::dequeue_call()
+{
+	callList.Dequeue();
+	return true;
+}
+
+void PhoneNumber::print_call_list()
+{
+	if (callList.is_empty())
+	{
+		cout << "No calls have been made yet!!";
+	}
+	else
+	{
+		PriorityQueue<Call> dummy;
+		dummy = callList;
+		while (!dummy.is_empty())
+		{
+			Call dummyCall = dummy.Top();
+			dummyCall.print_call();
+			dummy.Dequeue();
+		}
+	}
+}
