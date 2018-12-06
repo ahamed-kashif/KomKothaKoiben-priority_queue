@@ -1,9 +1,10 @@
 #pragma once
 #include<vector>
+#include "Call.h"
 
 using namespace std;
 
-template<class ItemType>
+
 class HeapType
 {
 public:
@@ -11,10 +12,9 @@ public:
 	~HeapType();
 	virtual void reheap_up(int root, int bottom);
 	virtual void reheap_down(int root, int bottom);
-	void swap(ItemType first, ItemType second);
-private:
+	void swap(Call first, Call second);
 
-	vector<ItemType>* items=nullptr;
+	vector<Call> item;
 
 };
 

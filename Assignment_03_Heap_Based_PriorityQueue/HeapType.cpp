@@ -2,21 +2,20 @@
 
 
 
-template<class ItemType>
-HeapType<ItemType>::HeapType()
+
+HeapType::HeapType()
 {
 }
 
 
-template<class ItemType>
-HeapType<ItemType>::~HeapType()
+HeapType::~HeapType()
 {
 }
 
-template<class ItemType>
-void HeapType<ItemType>::swap(ItemType first, ItemType second)
+
+void HeapType::swap(Call first, Call second)
 {
-	ItemType temp;
+	Call temp;
 	temp = first;
 	first = second;
 	second = temp;
