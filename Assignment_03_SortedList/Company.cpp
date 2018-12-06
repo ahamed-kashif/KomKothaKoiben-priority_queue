@@ -162,3 +162,40 @@ bool Company::delete_phone_number(Customer customer, PhoneNumber phoneNumber)
 	return false;
 }
 
+bool Company::insert_call_in_database(Customer customer, PhoneNumber phoneNumber, Call inComingCall)
+{
+	Customer customerFromList;
+	for (it = customerList.begin(); it != customerList.end(); it++)
+	{
+		customerFromList = *it;
+
+		if (customerFromList == customer && customerFromList.get_phone_number(phoneNumber) == phoneNumber)
+		{
+			customerFromList.insert_phone_call(phoneNumber, inComingCall);
+			*it = customerFromList;
+			return true;
+		}
+	}
+	cout << "This Customer is not in Database!!" << endl;
+	return false;
+}
+
+void Company::print_phone_call_list(Customer customer)
+{
+	Customer customerFromList;
+	for (it = customerList.begin(); it != customerList.end(); it++)
+	{
+		customerFromList = *it;
+		if (customerFromList == customer)
+		{
+			cout << endl;
+			cout << endl;
+			cout << "Customer ID: #" << customerFromList.get_customer_index() << endl;
+			cout << "\t" << customerFromList.get_name() << endl;
+			cout << endl;
+			customerFromList.print_call_list();
+			return;
+		}
+	}
+}
+

@@ -114,7 +114,7 @@ bool PhoneNumber::insert_call(Call newItem)
 		}
 		else if (curr->info.get_relation_type() == newItem.get_relation_type())
 		{
-			if (curr->info.get_call_duration() >= curr->info.get_call_duration())
+			if (curr->info.get_call_duration() <= newItem.get_call_duration())
 			{
 				posFound = true;
 				newNode->next = curr;
@@ -164,10 +164,32 @@ bool PhoneNumber::insert_call(Call newItem)
 		}
 		rear = newNode;
 	}
-	return posFound;
 	length++;
+	return posFound;
+	
 
 
+
+}
+
+bool PhoneNumber::dequeue_call()
+{
+	if (call_list_is_empty()) {
+		return false;
+	}
+
+	else {
+		NodeType* dequeuedNode = front;
+
+		front = front->next;
+
+		if (front == nullptr)
+			rear = nullptr;
+
+		delete dequeuedNode;
+		length--;
+		return true;
+	}
 
 }
 
@@ -176,7 +198,26 @@ bool PhoneNumber::call_list_is_empty()
 	return (front==nullptr && rear==nullptr && length==0);
 }
 
-void PhoneNumber::get_calls()
+bool PhoneNumber::call_list_isfull()
+{
+	try
+	{
+		NodeType* newNode = new NodeType();
+		delete newNode;
+	}
+	catch (bad_alloc)
+	{
+		return true;
+	}
+	return false;
+}
+
+Call PhoneNumber::get_call()
+{
+	return front->info;
+}
+
+void PhoneNumber::print_call_list()
 {
 	NodeType* temp = front;
 	while (temp != nullptr)
