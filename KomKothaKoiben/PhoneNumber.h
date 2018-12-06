@@ -6,7 +6,7 @@
 
 using namespace std;
 
-struct comparision
+struct comparision //this struct is used to compare Call class obeject in STL priority_queue
 {
 	bool operator()(Call called, Call calling)
 	{
@@ -60,7 +60,9 @@ public:
 
 	void insert_call(Call newCall);//inserting Phone Calls
 	bool call_list_is_empty();//returns if a number has phone calls or not
-	void get_calls();//getting all phone calls from priority_queue
+	Call get_calls();//this function will return top most call
+	bool dequeue_call();//this will dequeue top most Call
+	void print_call_list();//prints call list
 
 };
 

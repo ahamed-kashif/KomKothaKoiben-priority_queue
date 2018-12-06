@@ -45,7 +45,7 @@ public:
 	int phone_number_get_length();//accessor for phone number list length
 
 	bool insert_phone_call(PhoneNumber calledIn, Call call);//inserting call in a customer's saved phone numbers
-	void get_call_list();//retriving all calls of a customer
+	void print_call_list();//printing all calls of a customer
 
 
 	bool operator==(const Customer & rhs);//overloading operator == to compare Customer Type object

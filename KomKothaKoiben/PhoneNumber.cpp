@@ -104,7 +104,18 @@ bool PhoneNumber::call_list_is_empty()
 	return callList.empty();
 }
 
-void PhoneNumber::get_calls()
+Call PhoneNumber::get_calls()
+{
+	return callList.top();
+}
+
+bool PhoneNumber::dequeue_call()
+{
+	callList.pop();
+	return true;
+}
+
+void PhoneNumber::print_call_list()
 {
 	if (callList.empty())
 	{
@@ -116,7 +127,7 @@ void PhoneNumber::get_calls()
 		dummy = callList;
 		while (!dummy.empty())
 		{
-			Call dummyCall=dummy.top();
+			Call dummyCall = dummy.top();
 			dummyCall.print_call();
 			dummy.pop();
 		}

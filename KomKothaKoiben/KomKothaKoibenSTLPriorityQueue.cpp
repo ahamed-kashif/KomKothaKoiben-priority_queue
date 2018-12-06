@@ -36,7 +36,7 @@ bool KomKothaKoibenSTLPriorityQueue::is_empty()
 Customer KomKothaKoibenSTLPriorityQueue::get_customer_details(Customer item)
 {
 	Customer tempItem;
-	for (auto it = customerList.begin(); it != customerList.end(); it++)
+	for (it = customerList.begin(); it != customerList.end(); it++)
 	{
 		tempItem = *it;
 		if (tempItem == item)
@@ -62,7 +62,7 @@ bool KomKothaKoibenSTLPriorityQueue::put_customer_details(Customer item)
 		{
 			Customer tempItem;
 
-			for (auto it = customerList.begin(); it != customerList.end(); it++)
+			for (it = customerList.begin(); it != customerList.end(); it++)
 			{
 				tempItem = *it;
 				if (tempItem > item)
@@ -89,7 +89,7 @@ bool KomKothaKoibenSTLPriorityQueue::delete_customer_details(Customer item)
 {
 	Customer tempItem;
 
-	for (auto it = customerList.begin(); it != customerList.end(); it++)
+	for (it = customerList.begin(); it != customerList.end(); it++)
 	{
 		tempItem = *it;
 		if (tempItem.get_customer_index() == item.get_customer_index())
@@ -110,7 +110,7 @@ void KomKothaKoibenSTLPriorityQueue::print_customer_list()
 {
 	Customer customer;
 
-	for (auto it = customerList.begin(); it != customerList.end(); it++)
+	for (it = customerList.begin(); it != customerList.end(); it++)
 	{
 		customer = *it;
 		customer.print_customer_details();
@@ -122,7 +122,7 @@ void KomKothaKoibenSTLPriorityQueue::print_customer_list()
 bool KomKothaKoibenSTLPriorityQueue::insert_new_number(Customer customer, PhoneNumber phone)
 {
 	Customer temCustomer;
-	for (auto it = customerList.begin(); it != customerList.end(); it++)
+	for (it = customerList.begin(); it != customerList.end(); it++)
 	{
 		temCustomer = *it;
 		if (temCustomer == customer)
@@ -180,7 +180,7 @@ bool KomKothaKoibenSTLPriorityQueue::insert_call_in_database(Customer customer, 
 	return false;
 }
 
-void KomKothaKoibenSTLPriorityQueue::get_phone_call_list(Customer customer)
+void KomKothaKoibenSTLPriorityQueue::print_phone_call_list(Customer customer)
 {
 	Customer customerFromList;
 	for (it = customerList.begin(); it != customerList.end(); it++)
@@ -193,7 +193,7 @@ void KomKothaKoibenSTLPriorityQueue::get_phone_call_list(Customer customer)
 			cout << "Customer ID: #" << customerFromList.get_customer_index() << endl;
 			cout << "\t" << customerFromList.get_name() << endl;
 			cout << endl;
-			customerFromList.get_call_list();
+			customerFromList.print_call_list();
 			return;
 		}
 			

@@ -165,7 +165,7 @@ bool Customer::insert_phone_call(PhoneNumber calledIn, Call call)
 	return false;
 }
 
-void Customer::get_call_list()
+void Customer::print_call_list()
 {
 	PhoneNumber number;
 	
@@ -177,7 +177,7 @@ void Customer::get_call_list()
 			
 			cout << "\t" << number.get_operator_name() << "  " << number.get_phone_number() << endl;
 			cout << "\tCalls: " << endl;
-			number.get_calls();
+			number.print_call_list();
 			cout << endl;
 		}
 		
