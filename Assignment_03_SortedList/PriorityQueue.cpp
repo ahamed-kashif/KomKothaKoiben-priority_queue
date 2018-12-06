@@ -19,11 +19,11 @@ PriorityQueue<ItemType>::~PriorityQueue()
 template<class ItemType>
 bool PriorityQueue<ItemType>::Enqueue(ItemType newItem)
 {
-	if (IsFull())
+	if (is_full())
 		return false;
 
 	NodeType* newNode = new NodeType;
-	newNode->info = newitem;
+	newNode->info = newItem;
 	NodeType* curr = front;
 	NodeType* prev = nullptr;
 	bool posFound = false;
@@ -60,16 +60,16 @@ bool PriorityQueue<ItemType>::Enqueue(ItemType newItem)
 }
 
 template<class ItemType>
-void PriorityQueue<ItemType>::Dequeue(ItemType item)
+void PriorityQueue<ItemType>::Dequeue()
 {
-	if (IsEmpty()) {
+	if (is_empty()) {
 		throw EmptyQueue();
 	}
 	else {
 		NodeType* dequeuedNode = front;
 
 		front = front->next;
-		item = dequeuedNode->info;
+		
 
 		if (front == nullptr)
 			rear = nullptr;
@@ -95,15 +95,15 @@ bool PriorityQueue<ItemType>::is_full()
 template<class ItemType>
 void PriorityQueue<ItemType>::make_empty()
 {
-	ItemType dummyItem;
-	while (!IsEmpty())
-		Dequeue(dummyItem);
+	
+	while (!is_empty())
+		Dequeue();
 }
 
 template<class ItemType>
 bool PriorityQueue<ItemType>::is_empty()
 {
-	return ((currentSize == 0) && (front == nullptr) && (rear == nullptr));
+	return ((length == 0) && (front == nullptr) && (rear == nullptr));
 }
 
 template<class ItemType>

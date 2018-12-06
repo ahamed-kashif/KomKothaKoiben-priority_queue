@@ -3,6 +3,7 @@
 #include<string>
 #include <queue>
 #include"Call.h"
+#include "PriorityQueue.h"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ private:
 	string phoneNumber;
 	string operatorName;
 	
-
+	PriorityQueue<Call> calling;
 
 
 public:
@@ -39,7 +40,11 @@ public:
 	friend ostream& operator<<(ostream& os, const PhoneNumber& phoneNumber);//overloading operator << to print PhoneNumber Type object
 
 	
-
+	void insert_call(Call newCall);//inserting Phone Calls
+	bool call_list_is_empty();//returns if a number has phone calls or not
+	Call get_calls();//this function will return top most call
+	bool dequeue_call();//this will dequeue top most Call
+	void print_call_list();//prints call list
 
 
 };

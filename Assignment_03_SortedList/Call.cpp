@@ -77,6 +77,35 @@ double Call::get_call_duration()
 	return time;
 }
 
+bool Call::operator==(const Call& rhs)
+{
+	if (this->relation == rhs.relation && this->time == rhs.time)
+		return true;
+}
+
+bool Call::operator<(const Call & rhs)
+{
+	if (this->relation == rhs.relation)
+	{
+		if (this->time < rhs.time)
+			return true;
+	}
+	else if (this->relation < rhs.relation)
+		return true;
+}
+
+bool Call::operator>(const Call & rhs)
+{
+	if (this->relation == rhs.relation)
+	{
+		if (this->time > rhs.time)
+			return true;
+	}
+	else if (this->relation > rhs.relation)
+		return true;
+}
+
+
 void Call::print_call()
 {
 	switch (relation)

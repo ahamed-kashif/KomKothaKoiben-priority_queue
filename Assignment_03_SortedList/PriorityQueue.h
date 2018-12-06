@@ -25,13 +25,13 @@ public:
 	PriorityQueue();
 	~PriorityQueue();
 	bool Enqueue(ItemType);
-	void Dequeue(ItemType);
+	void Dequeue();
 	bool is_full();
 	void make_empty();
 	bool is_empty();
 	int get_length();
 	ItemType Top();
-	void sort_queue();
+	
 
 
 private:
