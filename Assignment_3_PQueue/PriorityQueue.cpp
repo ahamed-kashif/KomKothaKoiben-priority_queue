@@ -39,6 +39,14 @@ void PriorityQueue::reheapUp(int root, int bottom)
 			swap(calls[parent], calls[bottom]);
 			reheapUp(root, parent);
 		}
+		else if (calls[parent].get_relation_type() == calls[bottom].get_relation_type())
+		{
+			if (calls[parent].get_call_duration() < calls[bottom].get_call_duration())
+			{
+				swap(calls[parent], calls[bottom]);
+				reheapUp(root, parent);
+			}
+		}
 	}
 }
 
@@ -64,6 +72,15 @@ void PriorityQueue::reheapDown(int root, int bottom)
 					{
 						maxC = rightC;
 					}
+					else if (calls[rightC].get_relation_type() == calls[leftC].get_relation_type())
+					{
+						if (calls[rightC].get_call_duration() > calls[leftC].get_call_duration())
+						{
+							maxC = rightC;
+						}
+						else
+							maxC = leftC;
+					}
 					else
 						maxC = leftC;
 				}
@@ -72,6 +89,14 @@ void PriorityQueue::reheapDown(int root, int bottom)
 			{
 				swap(calls[root], calls[maxC]);
 				reheapDown(maxC, bottom);
+			}
+			else if (calls[root].get_relation_type() == calls[maxC].get_relation_type())
+			{
+				if (calls[root].get_call_duration() < calls[maxC].get_call_duration())
+				{
+					swap(calls[root], calls[maxC]);
+					reheapDown(maxC, bottom);
+				}
 			}
 		}
 	}
