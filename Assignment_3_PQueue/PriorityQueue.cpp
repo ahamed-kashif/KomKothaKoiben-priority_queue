@@ -104,6 +104,18 @@ void PriorityQueue::reheapDown(int root, int bottom)
 
 void PriorityQueue::enqueue(Call newCall)
 {
+	if (is_full())
+	{
+		Call* tempCalls = new Call[2*max_call];
+		for (int index = 0; index < length; index++)
+		{
+			tempCalls[index] = calls[index];
+		}
+		max_call *= 2;
+		delete[] calls;
+		calls = tempCalls;
+	}
+
 	length++;
 	calls[length - 1] = newCall;
 	reheapUp(0, length - 1);

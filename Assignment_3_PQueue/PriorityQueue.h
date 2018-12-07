@@ -1,5 +1,9 @@
 #pragma once
 #include"Call.h"
+
+
+using namespace std;
+
 class PriorityQueue
 {
 public:
@@ -18,7 +22,7 @@ public:
 
 private:
 	Call* calls;
-	int max_call = 100;
+	int max_call = 5;
 	int length;
 
 };
