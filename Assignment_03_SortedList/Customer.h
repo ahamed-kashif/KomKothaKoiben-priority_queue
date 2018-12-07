@@ -43,7 +43,8 @@ public:
 	int get_customer_index();//accessor of customer index
 	int phone_number_get_length();//accessor for phone number list length
 
-	bool insert_phone_call(PhoneNumber calledIn, Call call);//inserting call in a customer's saved phone numbers
+	bool enqueue_call(PhoneNumber calledIn, Call call);//inserting call in a customer's saved phone numbers
+	bool dequeue_phone_call(PhoneNumber called);//deques a call from customer's phone number
 	void print_call_list();//printing all calls of a customer
 
 

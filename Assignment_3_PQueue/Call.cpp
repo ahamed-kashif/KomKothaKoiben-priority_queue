@@ -94,11 +94,8 @@ void Call::print_call()
 		cout << "\t\t" << "Sibling " << relation << " " << time << " sec" << endl;
 		break;
 	case Aunt:
-		cout << "\t\t" << "Aunt " << relation << " " << time << " sec" << endl;
+		cout << "\t\t" << "Aunt/Uncel " << relation << " " << time << " sec" << endl;
 		break;
-		/*case Uncle:
-			cout << "\t\t" << "Uncle" << relation << " " << time << endl;
-			break;*/
 	case Cousins:
 		cout << "\t\t" << "Cousins " << relation << " " << time << " sec" << endl;
 		break;

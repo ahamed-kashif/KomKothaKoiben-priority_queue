@@ -96,7 +96,7 @@ bool PhoneNumber::operator>(const PhoneNumber & rhs)
 		return false;
 }
 
-bool PhoneNumber::insert_call(Call newItem)
+bool PhoneNumber::enqueue_call(Call newItem)
 {
 
 	
@@ -172,7 +172,7 @@ bool PhoneNumber::insert_call(Call newItem)
 
 }
 
-bool PhoneNumber::dequeue_call()
+bool PhoneNumber::dequeue_call(Call& call)
 {
 	if (call_list_is_empty()) {
 		return false;
@@ -180,7 +180,7 @@ bool PhoneNumber::dequeue_call()
 
 	else {
 		NodeType* dequeuedNode = front;
-
+		call = dequeuedNode->info;
 		front = front->next;
 
 		if (front == nullptr)

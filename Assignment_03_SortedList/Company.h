@@ -42,9 +42,10 @@ public:
 	bool insert_new_number(Customer, PhoneNumber);
 	bool delete_phone_number(Customer, PhoneNumber);
 
-	//bool change_operator_name(Customer, PhoneNumber, string);
+	
 
 	bool insert_call_in_database(Customer, PhoneNumber, Call);//inserting calls in company's database
+	bool dequeue_call_from_database(Customer, PhoneNumber);//dequeues call from a number of a customer from database
 	void print_phone_call_list(Customer);//printing a specific customer's (stored in database) call list
 };
 
