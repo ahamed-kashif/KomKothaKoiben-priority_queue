@@ -34,7 +34,7 @@ public:
 	bool operator>(const PhoneNumber & rhs);//overloading operator > to compare PhoneNumber Type object
 	friend ostream& operator<<(ostream& os, const PhoneNumber& phoneNumber);//overloading operator << to print PhoneNumber Type object
 
-	void insert_call(Call newCall);//inserting Phone Calls
+	void enqueue_call(Call newCall);//inserting Phone Calls
 	bool call_list_is_empty();//returns if a number has phone calls or not
 	Call get_calls();//this function will return top most call
 	void dequeue_call(Call&);//this will dequeue top most Call

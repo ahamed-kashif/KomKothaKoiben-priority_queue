@@ -94,7 +94,7 @@ bool PhoneNumber::operator>(const PhoneNumber & rhs)
 		return false;
 }
 
-void PhoneNumber::insert_call(Call newCall)
+void PhoneNumber::enqueue_call(Call newCall)
 {
 	callList.enqueue(newCall);
 }
@@ -121,3 +121,11 @@ void PhoneNumber::print_call_list()
 }
 
 
+ostream & operator<<(ostream & os, const PhoneNumber & phoneNumber)
+{
+	os << endl;
+	os << "Phone Number : \t" << phoneNumber.phoneNumber << endl;
+	os << "Operator Name:\t" << phoneNumber.operatorName << endl;
+
+	return os;
+}
