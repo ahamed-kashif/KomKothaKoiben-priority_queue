@@ -23,11 +23,15 @@ bool Customer::insert_phone_number(PhoneNumber item)
 			for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
 			{
 				tempItem = *it;
-				if (tempItem > item || tempItem == item)
+				if (tempItem > item)
 				{
 					phoneNumberList.insert(it, item);
 					length++;
 					return true;
+				}
+				else if (tempItem == item)
+				{
+					return false;
 				}
 
 			}
