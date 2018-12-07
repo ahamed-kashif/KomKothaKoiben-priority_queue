@@ -100,7 +100,7 @@ bool PhoneNumber::operator>(const PhoneNumber & rhs)
 
 
 
-void PhoneNumber::insert_call(Call newCall)
+void PhoneNumber::enqueue_call(Call newCall)
 {
 	callList.push(newCall);
 }

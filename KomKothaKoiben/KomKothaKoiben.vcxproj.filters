@@ -27,10 +27,10 @@
     <ClCompile Include="Driver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KomKothaKoibenSTLPriorityQueue.cpp">
+    <ClCompile Include="Call.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Call.cpp">
+    <ClCompile Include="Company.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,10 +44,10 @@
     <ClInclude Include="Customer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="KomKothaKoibenSTLPriorityQueue.h">
+    <ClInclude Include="Call.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Call.h">
+    <ClInclude Include="Company.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

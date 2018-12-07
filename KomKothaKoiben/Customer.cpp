@@ -23,13 +23,16 @@ bool Customer::insert_phone_number(PhoneNumber item)
 			for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
 			{
 				tempItem = *it;
-				if (tempItem > item || tempItem == item)
+				if (tempItem > item)
 				{
 					phoneNumberList.insert(it, item);
 					length++;
 					return true;
 				}
-
+				if (tempItem == item)
+				{
+					return false;
+				}
 			}
 			phoneNumberList.push_back(item);
 			return true;
@@ -142,7 +145,7 @@ int Customer::phone_number_get_length()
 	return phoneNumberList.size();
 }
 
-bool Customer::insert_phone_call(PhoneNumber calledIn, Call call)
+bool Customer::enqueue_phone_call(PhoneNumber calledIn, Call call)
 {
 	PhoneNumber phoneNumber;
 	for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
@@ -151,7 +154,7 @@ bool Customer::insert_phone_call(PhoneNumber calledIn, Call call)
 		
 		if (phoneNumber == calledIn)
 		{
-			phoneNumber.insert_call(call);
+			phoneNumber.enqueue_call(call);
 			*it = phoneNumber;
 			return true;
 		}
@@ -162,6 +165,23 @@ bool Customer::insert_phone_call(PhoneNumber calledIn, Call call)
 	}
 	
 	cout << "Phone Number is not currect" << endl;
+	return false;
+}
+
+bool Customer::dequeue_phone_call(PhoneNumber called)
+{
+	PhoneNumber tempNumber;
+	for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
+	{
+		tempNumber = *it;
+		if (tempNumber == called)
+		{
+			tempNumber.dequeue_call();
+			*it = tempNumber;
+			return true;
+		}
+	}
+	cout << "Phone number is not Correct!!" << endl;
 	return false;
 }
 

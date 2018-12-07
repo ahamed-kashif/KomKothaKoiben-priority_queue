@@ -1,39 +1,39 @@
-#include "KomKothaKoibenSTLPriorityQueue.h"
+#include "Company.h"
 
 
 
-KomKothaKoibenSTLPriorityQueue::KomKothaKoibenSTLPriorityQueue()
+Company::Company()
 {
 
 }
 
 
 
-KomKothaKoibenSTLPriorityQueue::~KomKothaKoibenSTLPriorityQueue()
+Company::~Company()
 {
 	make_empty();
 }
 
 
-int KomKothaKoibenSTLPriorityQueue::get_length()
+int Company::get_length()
 {
 	return customerList.size();
 }
 
 
-void KomKothaKoibenSTLPriorityQueue::make_empty()
+void Company::make_empty()
 {
 	customerList.clear();
 }
 
 
-bool KomKothaKoibenSTLPriorityQueue::is_empty()
+bool Company::is_empty()
 {
 	return customerList.empty();
 }
 
 
-Customer KomKothaKoibenSTLPriorityQueue::get_customer_details(Customer item)
+Customer Company::get_customer_details(Customer item)
 {
 	Customer tempItem;
 	for (it = customerList.begin(); it != customerList.end(); it++)
@@ -49,7 +49,7 @@ Customer KomKothaKoibenSTLPriorityQueue::get_customer_details(Customer item)
 }
 
 
-bool KomKothaKoibenSTLPriorityQueue::put_customer_details(Customer item)
+bool Company::put_customer_details(Customer item)
 {
 	try
 	{
@@ -70,6 +70,10 @@ bool KomKothaKoibenSTLPriorityQueue::put_customer_details(Customer item)
 					customerList.insert(it, item);
 					return true;
 				}
+				if (tempItem == item)
+				{
+					return false;
+				}
 			}
 
 			customerList.push_back(item);
@@ -85,7 +89,7 @@ bool KomKothaKoibenSTLPriorityQueue::put_customer_details(Customer item)
 }
 
 
-bool KomKothaKoibenSTLPriorityQueue::delete_customer_details(Customer item)
+bool Company::delete_customer_details(Customer item)
 {
 	Customer tempItem;
 
@@ -106,7 +110,7 @@ bool KomKothaKoibenSTLPriorityQueue::delete_customer_details(Customer item)
 
 
 
-void KomKothaKoibenSTLPriorityQueue::print_customer_list()
+void Company::print_customer_list()
 {
 	Customer customer;
 
@@ -119,7 +123,7 @@ void KomKothaKoibenSTLPriorityQueue::print_customer_list()
 	}
 }
 
-bool KomKothaKoibenSTLPriorityQueue::insert_new_number(Customer customer, PhoneNumber phone)
+bool Company::insert_new_number(Customer customer, PhoneNumber phone)
 {
 	Customer temCustomer;
 	for (it = customerList.begin(); it != customerList.end(); it++)
@@ -137,7 +141,7 @@ bool KomKothaKoibenSTLPriorityQueue::insert_new_number(Customer customer, PhoneN
 	return false;
 }
 
-bool KomKothaKoibenSTLPriorityQueue::delete_phone_number(Customer customer, PhoneNumber phoneNumber)
+bool Company::delete_phone_number(Customer customer, PhoneNumber phoneNumber)
 {
 	Customer customer1;
 	for (it = customerList.begin(); it != customerList.end(); it++)
@@ -162,7 +166,7 @@ bool KomKothaKoibenSTLPriorityQueue::delete_phone_number(Customer customer, Phon
 	return false;
 }
 
-bool KomKothaKoibenSTLPriorityQueue::insert_call_in_database(Customer customer, PhoneNumber phoneNumber, Call inComingCall)
+bool Company::insert_call_in_database(Customer customer, PhoneNumber phoneNumber, Call inComingCall)
 {
 	Customer customerFromList;
 	for (it = customerList.begin(); it != customerList.end(); it++)
@@ -171,7 +175,7 @@ bool KomKothaKoibenSTLPriorityQueue::insert_call_in_database(Customer customer, 
 		
 		if (customerFromList == customer && customerFromList.get_phone_number(phoneNumber)==phoneNumber)
 		{
-			customerFromList.insert_phone_call(phoneNumber, inComingCall);
+			customerFromList.enqueue_phone_call(phoneNumber, inComingCall);
 			*it = customerFromList;
 			return true;
 		}
@@ -180,7 +184,7 @@ bool KomKothaKoibenSTLPriorityQueue::insert_call_in_database(Customer customer, 
 	return false;
 }
 
-void KomKothaKoibenSTLPriorityQueue::print_phone_call_list(Customer customer)
+void Company::print_phone_call_list(Customer customer)
 {
 	Customer customerFromList;
 	for (it = customerList.begin(); it != customerList.end(); it++)

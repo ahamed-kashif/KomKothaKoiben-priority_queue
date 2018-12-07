@@ -7,15 +7,15 @@
 
 using namespace std;
 
-class KomKothaKoibenSTLPriorityQueue
+class Company
 {
 private:
 	std::list<Customer> customerList;
 	std::list<Customer>::iterator it;
 
 public:
-	KomKothaKoibenSTLPriorityQueue();
-	~KomKothaKoibenSTLPriorityQueue();
+	Company();
+	~Company();
 
 
 
