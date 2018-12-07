@@ -1,6 +1,6 @@
 #include "PhoneNumber.h"
 
-using namespace std;
+
 
 PhoneNumber::PhoneNumber()
 {
@@ -94,62 +94,30 @@ bool PhoneNumber::operator>(const PhoneNumber & rhs)
 		return false;
 }
 
-
-
-
-
-
-
 void PhoneNumber::insert_call(Call newCall)
 {
-	callList.push(newCall);
+	callList.enqueue(newCall);
 }
 
 bool PhoneNumber::call_list_is_empty()
 {
-	return callList.empty();
+	return callList.is_empty();
 }
 
-Call PhoneNumber::get_calls()
+void PhoneNumber::dequeue_call(Call& removedCall)
 {
-	return callList.top();
-}
-
-bool PhoneNumber::dequeue_call()
-{
-	callList.pop();
-	return true;
+	callList.dequeue(removedCall);
 }
 
 void PhoneNumber::print_call_list()
 {
-	if (callList.empty())
+	PriorityQueue temp = callList;
+	Call removedCall;
+	while (!temp.is_empty())
 	{
-		cout << "No calls have been made yet!!";
-	}
-	else
-	{
-		Calling dummy;
-		dummy = callList;
-		while (!dummy.empty())
-		{
-			Call dummyCall = dummy.top();
-			dummyCall.print_call();
-			dummy.pop();
-		}
+		temp.dequeue(removedCall);
+		removedCall.print_call();
 	}
 }
 
-
-
-
-
-ostream & operator<<(ostream & os, const PhoneNumber & phoneNumber)
-{
-	os << endl;
-	os << "Phone Number : \t" << phoneNumber.phoneNumber << endl;
-	os << "Operator Name:\t" << phoneNumber.operatorName << endl;
-
-	return os;
-}
 
