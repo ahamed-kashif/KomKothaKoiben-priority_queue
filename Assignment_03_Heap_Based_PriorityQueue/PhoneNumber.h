@@ -44,7 +44,7 @@ public:
 	friend ostream& operator<<(ostream& os, const PhoneNumber& phoneNumber);//overloading operator << to print PhoneNumber Type object
 
 	
-	void reheap_up(int root, int bottom);
+	bool reheap_up(int root, int bottom);
 	void reheap_down(int root, int bottom);
 	void swap(Call first, Call second);
 	

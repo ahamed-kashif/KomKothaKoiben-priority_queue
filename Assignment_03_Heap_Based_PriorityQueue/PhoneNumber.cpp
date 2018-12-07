@@ -97,30 +97,22 @@ bool PhoneNumber::operator>(const PhoneNumber & rhs)
 		return false;
 }
 
-void PhoneNumber::reheap_up(int root, int bottom)
+bool PhoneNumber::reheap_up(int root, int bottom)
 {
 	int parent;
-	if (root < bottom)
+	if (bottom > root)
 	{
-		parent = bottom - 1 / 2;
+		parent = bottom / 2;
 		
-		if (item[parent].get_relation_type()<item[bottom].get_relation_type())
+		if (item[parent].get_relation_type() > item[bottom].get_relation_type())
 		{
 			swap(item[parent], item[bottom]);
 			reheap_up(root, parent);
+			
 		}
-		else if (item[parent].get_relation_type() == item[bottom].get_relation_type())
-		{
-			cout << "gotcha!!\n";
-			if (item[parent].get_call_duration() < item[bottom].get_call_duration())
-			{
-
-				swap(item[parent], item[bottom]);
-				cout << "after gotcha!!\n";
-				reheap_up(root, parent);
-			}
-		}
+		
 	}
+	return true;
 }
 
 void PhoneNumber::reheap_down(int root, int bottom)
@@ -128,44 +120,28 @@ void PhoneNumber::reheap_down(int root, int bottom)
 	int minChild;
 	int leftChild= 2 * root + 1;
 	int rightChild= 2 * root + 2;
-	if (root < bottom)
+	if (leftChild <= bottom)
 	{
-		minChild = leftChild;
-		if (root < rightChild)
-		{
-			if (item[rightChild].get_relation_type() < item[leftChild].get_relation_type())
+			minChild = leftChild;
+		
+		
+		
+			if (item[rightChild].get_relation_type() < item[minChild].get_relation_type())
 			{
-				minChild = rightChild;
-			}
-			else if (item[rightChild].get_relation_type() == item[leftChild].get_relation_type())
-			{
-				if (item[rightChild].get_call_duration() <= item[leftChild].get_call_duration())
-				{
 					minChild = rightChild;
-				}
-				else
-					minChild = leftChild;
 			}
-			else
-				minChild = leftChild;
-		}
-		if (item[minChild].get_relation_type() < item[root].get_relation_type())
+			
+		
+		if (item[root].get_relation_type() > item[minChild].get_relation_type())
 		{
-			swap(item[minChild], item[root]);
+
+			swap(item[root], item[minChild]);
 			reheap_down(minChild, bottom);
 		}
-		else if (item[minChild].get_relation_type() == item[root].get_relation_type())
-		{
-			if (item[minChild].get_call_duration() >= item[root].get_call_duration())
-			{
-				swap(item[minChild], item[root]);
-				reheap_down(minChild, bottom);
-			}
-		}
-
-	}
+	}		
 
 }
+
 
 void PhoneNumber::swap(Call first, Call second)
 {
@@ -196,25 +172,33 @@ void PhoneNumber::dequeue_call()
 {
 	item[0] = item[length - 1];
 	length--;
-	reheap_up(0, length - 1);
+	reheap_down(0, length - 1);
 }
 
 void PhoneNumber::print_call_list()
 {
 	Call tempCallList[100];
+	Call tempCallList1[100];
 	for (int index = 0; index < length; index++)
 	{
 		tempCallList[index] = item[index];
 	}
 	
-	int tempLength = length;
-	while (tempLength != 0)
+	int tempLength = 0;
+	int index = 0;
+	while (tempLength != length)
 	{
-		tempCallList[0].print_call();
-		tempCallList[0] = tempCallList[tempLength - 1];
-		tempLength--;
-		reheap_up(0, tempLength - 1);
+		
+		
+		tempCallList[tempLength].print_call();
+		
+		tempLength++;
+		
+		
+		
 	}
+
+	
 }
 
 
