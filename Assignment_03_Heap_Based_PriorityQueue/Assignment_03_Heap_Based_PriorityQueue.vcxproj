@@ -154,14 +154,18 @@
     <ClCompile Include="Call.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="HeapType.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="PhoneNumber.cpp" />
+    <ClCompile Include="PQType.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Call.h" />
     <ClInclude Include="Customer.h" />
+    <ClInclude Include="HeapType.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="PhoneNumber.h" />
+    <ClInclude Include="PQType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

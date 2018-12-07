@@ -46,7 +46,7 @@ public:
 	
 	bool reheap_up(int root, int bottom);
 	void reheap_down(int root, int bottom);
-	void swap(Call first, Call second);
+	void swap(Call& first, Call& second);
 	
 	void insert_call(Call newCall);//inserting Phone Calls
 	bool call_list_is_empty();//returns if a number has phone calls or not

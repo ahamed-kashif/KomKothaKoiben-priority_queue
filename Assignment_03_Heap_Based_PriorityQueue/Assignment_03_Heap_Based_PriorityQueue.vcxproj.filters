@@ -30,6 +30,12 @@
     <ClCompile Include="Call.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HeapType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PQType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Person.h">
@@ -42,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Call.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PQType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

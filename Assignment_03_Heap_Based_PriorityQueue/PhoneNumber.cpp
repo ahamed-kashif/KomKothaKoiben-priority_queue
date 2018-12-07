@@ -99,56 +99,71 @@ bool PhoneNumber::operator>(const PhoneNumber & rhs)
 
 bool PhoneNumber::reheap_up(int root, int bottom)
 {
-	int parent;
-	if (bottom > root)
+	if (item != nullptr)
 	{
-		parent = bottom / 2;
-		
-		if (item[parent].get_relation_type() > item[bottom].get_relation_type())
+		int parent;
+		if (bottom > root)
 		{
-			swap(item[parent], item[bottom]);
-			reheap_up(root, parent);
-			
+			parent = (bottom / 2);
+			if (item[parent].get_relation_type() > item[bottom].get_relation_type())
+			{
+				swap(item[parent], item[bottom]);
+
+				reheap_up(root, parent);
+				cout << "end of reheap\n";
+			}
 		}
-		
+		return true;
 	}
-	return true;
+	
 }
 
 void PhoneNumber::reheap_down(int root, int bottom)
 {
-	int minChild;
-	int leftChild= 2 * root + 1;
-	int rightChild= 2 * root + 2;
-	if (leftChild <= bottom)
+	if (item != nullptr)
 	{
+		int minChild;
+		int leftChild = 2 * root + 1;
+		int rightChild = 2 * root + 2;
+		if (leftChild <= bottom)
+		{
 			minChild = leftChild;
-		
-		
-		
-			if (item[rightChild].get_relation_type() < item[minChild].get_relation_type())
+			if (rightChild <= bottom)
 			{
+				if (item[rightChild].get_relation_type() <= item[minChild].get_relation_type())
+				{
 					minChild = rightChild;
+				}
 			}
 			
-		
-		if (item[root].get_relation_type() > item[minChild].get_relation_type())
-		{
 
-			swap(item[root], item[minChild]);
-			reheap_down(minChild, bottom);
+
+			if (item[root].get_relation_type() >= item[minChild].get_relation_type())
+			{
+
+				swap(item[root], item[minChild]);
+				reheap_down(minChild, bottom);
+			}
 		}
-	}		
+	}
+	
 
 }
 
 
-void PhoneNumber::swap(Call first, Call second)
+void PhoneNumber::swap(Call& first, Call& second)
 {
 	Call temp;
 	temp = first;
 	first = second;
 	second = temp;
+	//cout << "root:";
+	//first.print_call();
+	//cout << "bottom:";
+	//second.print_call();
+	//cout << "swapped\n";
+	//cout << "\n";
+	//cout << "\n";
 }
 
 void PhoneNumber::insert_call(Call newCall)
@@ -184,18 +199,16 @@ void PhoneNumber::print_call_list()
 		tempCallList[index] = item[index];
 	}
 	
-	int tempLength = 0;
+	int tempLength = length;
 	int index = 0;
-	while (tempLength != length)
+	while (tempLength != 0)
 	{
 		
-		
-		tempCallList[tempLength].print_call();
-		
-		tempLength++;
-		
-		
-		
+		tempCallList[0].print_call();
+		swap(tempCallList[0], tempCallList[tempLength - 1]);
+		tempLength--;
+		reheap_down(0, tempLength - 1);
+
 	}
 
 	
