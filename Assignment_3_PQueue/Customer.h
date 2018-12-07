@@ -17,7 +17,7 @@ private:
 
 	int length;
 	int customerIndex;
-	int phoneNumberIterator = -1;
+	
 
 
 	list<PhoneNumber> phoneNumberList;
@@ -32,8 +32,7 @@ public:
 	bool insert_phone_number(PhoneNumber);//inserting phone number
 	bool delete_phone_number(PhoneNumber);//deleting phone number
 	PhoneNumber get_phone_number(PhoneNumber);//retriving a phone number
-	void get_next_phone_number(PhoneNumber&);//retriving next available phone number
-	void reset_phone_number_list();//reseting the phone number iterator
+	
 
 	void make_empty();//deletes all phone numbers
 	bool is_full();//checks if phone number list has more than 15 numbers
@@ -45,6 +44,7 @@ public:
 	int phone_number_get_length();//accessor for phone number list length
 
 	bool insert_phone_call(PhoneNumber calledIn, Call call);//inserting call in a customer's saved phone numbers
+	bool dequeue_phone_call(PhoneNumber called);//deques a call from customer's phone number
 	void print_call_list();//printing all calls of a customer
 
 

@@ -70,6 +70,8 @@ bool Company::put_customer_details(Customer item)
 					customerList.insert(it, item);
 					return true;
 				}
+				else if (tempItem == item)
+					return false;
 			}
 
 			customerList.push_back(item);
@@ -177,6 +179,23 @@ bool Company::insert_call_in_database(Customer customer, PhoneNumber phoneNumber
 		}
 	}
 	cout << "This Customer is not in Database!!" << endl;
+	return false;
+}
+
+bool Company::dequeue_call_from_database(Customer customer, PhoneNumber calledIn)
+{
+	Customer tempCustomer;
+	for (it = customerList.begin(); it != customerList.end(); it++)
+	{
+		tempCustomer = *it;
+		if (tempCustomer == customer)
+		{
+			tempCustomer.dequeue_phone_call(calledIn);
+			*it = tempCustomer;
+			return true;
+		}
+	}
+	cout << "Customer Information is wrong" << endl;
 	return false;
 }
 

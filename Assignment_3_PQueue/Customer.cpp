@@ -76,21 +76,6 @@ PhoneNumber Customer::get_phone_number(PhoneNumber item)
 	return phoneNumberList.front();
 }
 
-void Customer::get_next_phone_number(PhoneNumber& phone)
-{
-	if (is_empty())
-		return;
-
-	auto iterator = next(phoneNumberList.begin(), phoneNumberList.size());
-	phone = *iterator;
-	phoneNumberIterator++;
-
-}
-
-void Customer::reset_phone_number_list()
-{
-	phoneNumberIterator = -1;
-}
 
 
 
@@ -151,7 +136,7 @@ bool Customer::insert_phone_call(PhoneNumber calledIn, Call call)
 
 		if (phoneNumber == calledIn)
 		{
-			phoneNumber.insert_call(call);
+			phoneNumber.enqueue_call(call);
 			*it = phoneNumber;
 			return true;
 		}
@@ -162,6 +147,24 @@ bool Customer::insert_phone_call(PhoneNumber calledIn, Call call)
 	}
 
 	cout << "Phone Number is not currect" << endl;
+	return false;
+}
+
+bool Customer::dequeue_phone_call(PhoneNumber called)
+{
+	PhoneNumber tempNumber;
+	Call removedCall;
+	for (it = phoneNumberList.begin(); it != phoneNumberList.end(); it++)
+	{
+		tempNumber = *it;
+		if (tempNumber == called)
+		{
+			tempNumber.dequeue_call(removedCall);
+			*it = tempNumber;
+			return true;
+		}
+	}
+	cout << "Phone number is not Correct!!" << endl;
 	return false;
 }
 

@@ -15,16 +15,9 @@ private:
 	std::list<Customer> customerList;
 	std::list<Customer>::iterator it;
 
-
-
-
-
 public:
 	Company();
 	~Company();
-
-
-
 	int get_length();
 	void make_empty();
 	bool is_empty();
@@ -42,9 +35,10 @@ public:
 	bool insert_new_number(Customer, PhoneNumber);
 	bool delete_phone_number(Customer, PhoneNumber);
 
-	//bool change_operator_name(Customer, PhoneNumber, string);
+	
 
 	bool insert_call_in_database(Customer, PhoneNumber, Call);//inserting calls in company's database
+	bool dequeue_call_from_database(Customer, PhoneNumber);//deque a call from a customer's phone number
 	void print_phone_call_list(Customer);//printing a specific customer's (stored in database) call list
 };
 
